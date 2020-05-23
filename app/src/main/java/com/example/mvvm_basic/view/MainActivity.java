@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView= findViewById(R.id.recycleViewId);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mainActivityViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+        mainActivityViewModel = new ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory
+                .getInstance(this.getApplication())).get(MainActivityViewModel.class);
 
 
             mainActivityViewModel.getAllUser().observe(this, new Observer<User[]>() {
